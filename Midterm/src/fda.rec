@@ -1,0 +1,17 @@
+let true = zero?(0)
+in let false = zero?(1)
+in letrec q0(l) =
+             if empty?(l)
+    then true
+    else (if zero?(hd(l))
+            then (q1 tl(l))
+    else false)
+            q1(l) =
+     if empty?(l)
+     then false
+     else (if zero?(hd(l)-1)
+             then (q0 tl(l))
+     else false
+     )
+in let l = cons(1,cons(0,cons(1,emptylist)))
+in (q0 l)
